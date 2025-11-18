@@ -1,17 +1,27 @@
-class Car:
-    pass
-class Battery:
-    def __init__(self):
-        self.__battery_level = 80
-    def read_battery_meter(self):
-        print(f"Battery level: {self.__battery_level}%")
-class ElectricCar(Car):
-    def __init__(self, maker, model, year):
-        super().__init__()
-        self.maker = maker
-        self.model = model
-        self.year = year
-        self.battery = Battery()
+from abc import ABC, abstractmethod
 
-my_E_car = ElectricCar('tesla', 'model S', '2022')
-my_E_car.battery.read_battery_meter()
+class bee(ABC):
+    @abstractmethod
+    def fly(self):  
+        pass
+    
+    def attack(self):
+        print("Attack against the intruder")
+
+class honey_bee(bee):
+    def fly(self):
+        print("looking for feed")
+
+class hornet(bee):
+    def fly(self):
+        print("looking for enemy")
+
+print("Test 2:")
+hb = honey_bee()
+hb.fly()
+hb.attack()
+
+print("Test 3:")
+hb2 = hornet() 
+hb2.fly()
+hb2.attack()
