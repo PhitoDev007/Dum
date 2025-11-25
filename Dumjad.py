@@ -1,28 +1,40 @@
-class Bird:
-    def intro(self):
-        print("There are many types of birds.")
+from math import pi
+
+class Shape:
+    def __init__(self, name):
+        self.name = name
     
-    def flight(self):
-        print("birds can fly.")
+    def area(self):
+        pass
+    
+    def fact(self):
+        return "I am a two-dimensional shape."
+    
+    def __str__(self):
+        return self.name
 
-class sparrow(Bird):
-    def flight(self):
-        print("Sparrows can fly.")
+class Square(Shape):
+    def __init__(self, length):
+        super().__init__("Square")
+        self.length = length
+    
+    def area(self):
+        return self.length**2
+    
+    def fact(self):
+        return "Squares have each angle equal to 90 degrees."
 
-class ostrich(Bird):
-    pass
-    # def flight(self):
-    #     print("Ostriches cannot fly.")
+class Circle(Shape):
+    def __init__(self, radius):
+        super().__init__("Circle")
+        self.radius = radius
+    
+    def area(self):
+        return pi*self.radius**2
 
-obj_bird = Bird()
-obj_spr = sparrow()
-obj_ost = ostrich()
-
-obj_bird.intro()
-obj_bird.flight()
-
-obj_spr.intro()
-obj_spr.flight()
-
-obj_ost.intro()
-obj_ost.flight()
+a = Square(4)
+b = Circle(7)
+print(b)
+print(b.fact())
+print(a.fact())
+print(b.area())
