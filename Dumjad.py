@@ -1,20 +1,19 @@
-class Tomato():
-    def type(self):
-        print ("Vegetable")
-    def color(self):
-        print("Red")
+class India():
+    def capital(self):
+        print("New Delhi")
 
-class Apple():
-    def type(self):
-        print("Fruit")
-    def color(self):
-        print ("Red")
+    def language(self):
+        print("Hindi and English")
 
-def func(obj):
-    obj. type ( )
-    obj . color ()
+class USA():
+    def capital(self):
+        print("Washington, D.C.")
 
-obj_tomato = Tomato()
-obj_apple = Apple()
-func (obj_tomato)
-func(obj_apple)
+    def language(self):
+        print("English")
+
+obj_ind = India()
+obj_usa = USA()
+for country in (obj_ind, obj_usa):
+    country. capital()
+    country. language ()
