@@ -1,44 +1,68 @@
-
 from abc import ABC, abstractmethod
+from math import pi
 
-class Car(ABC):
-    def __init__(self, brand, model, year):
-        self.brand = brand
-        self.model = model
-        self.year = year
+class Shape(ABC):
+    def __init__(self, name):
+        self.name = name
     
     @abstractmethod
-    def printDetails(self):
+    def area(self):
         pass
     
-
-    def accelerate(self):
-        print("speed up ...")
+    def fact(self):
+        return "I am a two-dimensional shape."
     
-    def break_applied(self):
-        print("Car stop")
+    def __str__(self):
+        return self.name
 
-
-class Hatchback(Car):
-    def printDetails(self):
-        print("Brand:", self.brand)
-        print("Model:", self.model)
-        print("Year:", self.year)
+class Square(Shape):
+    def __init__(self, length):
+        super().__init__("Square")
+        self.length = length
     
-    def Sunroof(self):
-        print("Not having this feature")
-
-
-class Suv(Car):
-    def printDetails(self):
-        print("Brand:", self.brand)
-        print("Model:", self.model)
-        print("Year:", self.year)
+    def area(self):
+        return self.length**2
     
-    def Sunroof(self):
-        print("Available")
+    def fact(self):
+        return "Squares have each angle equal to 90 degrees."
 
-car1 = Hatchback("Maruti", "Alto", "2022")
+class Circle(Shape):
+    def __init__(self, radius):
+        super().__init__("Circle")
+        self.radius = radius
+    
+    def area(self):
+        return pi*self.radius**2
 
-car1.printDetails()
-car1.accelerate()
+class EquilateralTriangle(Shape):
+    def __init__(self, baseLength):
+        super().__init__("Equilateral Triangle")
+        self.baseLength = baseLength
+    
+    def area(self):
+        return (self.baseLength**2 * (3**0.5)) / 4
+    
+    def fact(self):
+        return "An equilateral triangle has equal sides on each side"
+
+class AnyTriangle(Shape):
+    def __init__(self, baseLength, height):
+        super().__init__("Any Triangle")
+        self.baseLength = baseLength
+        self.height = height
+    
+    def area(self):
+        return 0.5 * self.baseLength * self.height
+    
+    def fact(self):
+        return "A triangle has three sides"
+
+a = Square(4)
+b = Circle(7)
+c = EquilateralTriangle(5)
+d = AnyTriangle(6, 8)
+
+for anyShape in (a, b, c, d):
+    print(anyShape)
+    print(anyShape.area())
+    print(anyShape.fact())
